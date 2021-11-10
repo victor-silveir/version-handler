@@ -1,12 +1,12 @@
-// using spawn in the child process module
-let spawn = require('child_process').spawn,
-// start get log process
+
+let { spawn } = require('child_process'),
+
 git = spawn('git', ['log', '--format=%s']),
-// buffer for data
 buf = Buffer.alloc(0);
-// concat
+
 git.stdout.on('data', (data) => {
     buf = Buffer.concat([buf, data])
+    console.log(buf);
 });
 // if process error
 git.stderr.on('data', (data) => {

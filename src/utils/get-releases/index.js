@@ -29,7 +29,6 @@ const findTagCommit = async () => {
         });
         res(commit);
     })
-    console.log('a');
 
 };
 

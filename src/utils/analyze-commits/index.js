@@ -4,7 +4,6 @@ const getLatestTag = require("../get-tags")
 const analyzeCommits = async () => {
     let version = ''
     const tag = await getLatestTag();
-    console.log(`a ${tag}`);
 
     if(!tag) {
         version = '0.0.0';
@@ -20,7 +19,6 @@ const analyzeCommits = async () => {
 
     commits.every((commit) => {
         const title = commit.message.split(':')[0];
-        console.log(title)
         switch (title) {
             case 'feat':
                 minor = +minor + 1
@@ -33,7 +31,7 @@ const analyzeCommits = async () => {
 
     version = `${major}.${minor}.${patch}`
 
-    console.log(version);
+    console.log(`version: v${version}`);
 
 
   
